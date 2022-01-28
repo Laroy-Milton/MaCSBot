@@ -1,0 +1,2 @@
+When updating new commands, make sure to call 'node .\deploy-commands.js'
+to update ther slash commands on the server
