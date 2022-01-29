@@ -1,4 +1,5 @@
-const { SlashCommandBuilder, MessageActionRow, MessageSelectMenu, MessageEmbed  } = require('@discordjs/builders');
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { MessageActionRow, MessageSelectMenu } = require('discord.js');
 
 
 module.exports = {
@@ -8,7 +9,7 @@ module.exports = {
 	async execute(interaction) {
         //This is for the dorpdown menu
         
-		await interaction.send({content: 'Welcome, please select a role to get started.', 
+		await interaction.reply({content: 'Welcome, please select a role to get started.', 
             components: [
             new MessageActionRow()
         .addComponents(

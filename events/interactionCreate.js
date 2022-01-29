@@ -1,3 +1,5 @@
+const { MessageActionRow, MessageButton } = require('discord.js');
+
 module.exports = {
 	name: 'interactionCreate',
 	async execute(interaction) {
@@ -17,8 +19,27 @@ module.exports = {
         }
         if (interaction.isSelectMenu()) {
             // TODO seperate function
-            if (interaction.customeId === 'selectMainRole') {
+            if (interaction.customId === 'selectMainRole') {
                 await interaction.reply({content: "This is empehmeral", ephemeral: true});
+            }
+        }
+
+        if (interaction.isButton()) {
+            if (interaction.customId === 'acceptRules') {
+                const userId = interaction.member.user.id;
+                console.log(userId);
+                const row = new MessageActionRow()
+                    .addComponents(
+                        new MessageButton()
+                        .setStyle('LINK')
+                        .setLabel('Verify Email')
+                        .setURL(`http://localhost:5500/?userid=${userId}`)
+                    )
+                await interaction.reply({content: "Please verify your email", ephemeral: true, components: [row]});
+            }
+
+            if (interaction.customId === 'denyRules') {
+                await interaction.reply({content: "You must comply with the rules to gain access to the server", ephemeral: true});
             }
         }
 	},

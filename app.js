@@ -4,7 +4,7 @@ var path    = require("path");
 const app = new express();
 
 const hostname = '127.0.0.1';
-const port = 3000;
+const port = 5500;
 
 // const server = http.createServer((req, res) => {
 //   res.statusCode = 200;
