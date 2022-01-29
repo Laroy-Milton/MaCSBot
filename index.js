@@ -3,6 +3,10 @@ const { Client, Collection, Intents } = require('discord.js');
 const { token } = require('./config.json');
 const interactionCreate = require('./events/interactionCreate');
 
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES] });
 
 
